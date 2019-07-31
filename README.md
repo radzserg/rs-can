@@ -1,0 +1,3 @@
+# rs-can
+
+Authentication library

@@ -1,0 +1,25 @@
+{
+  "name": "rs-can",
+  "version": "1.0.0",
+  "description": "authorization library",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rm -Rf ./dist/* && NODE_ENV=production tsc --build tsconfig.json && npm run copy:package",
+    "copy:package": "cp README.md package.json dist/",
+    "deploy": "npm run build && npm publish dist"
+  },
+  "keywords": [
+    "authorization",
+    "can",
+    "cancan"
+  ],
+  "author": "Sergey Radzishevskii <radzserg@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.16",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  }
+}
