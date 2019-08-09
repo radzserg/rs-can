@@ -36,9 +36,9 @@ export default class Abilities {
         return new Abilities(abilities);
     }
 
-    filterByCondition(options?: any): Abilities {
+    filterByCondition(performer: any, target: any, options?: any): Abilities {
         const abilities = this.abilities.filter((ability: Ability) => {
-            return ability.can(options);
+            return ability.can(performer, target, options);
         });
         return new Abilities(abilities);
     }

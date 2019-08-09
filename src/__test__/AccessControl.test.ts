@@ -1,12 +1,11 @@
-import Can from "../Can";
+import AccessControl from "../AccessControl";
 
 class A {}
 class B {}
 
 describe("Can", () => {
     it("filter ability by performer class", () => {
-        // new Ability(A, "update", B);
-        const can = new Can();
+        const can = new AccessControl();
         can.can(A, "update", B);
     });
 });

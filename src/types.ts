@@ -2,7 +2,7 @@ export interface Type<T> extends Function {
     new (...args: any[]): T;
 }
 export type CheckCondition = (
-    performer: Type<any>,
-    target: Type<any>,
+    performer: any,
+    target: any,
     options?: any
 ) => boolean;

@@ -18,10 +18,10 @@ export default class Ability {
         this.condition = condition;
     }
 
-    can(options?: any) {
+    can(performer?: any, target?: any, options?: any) {
         if (this.condition === undefined) {
             return true;
         }
-        return this.condition(this.performerClass, this.targetClass, options);
+        return this.condition(performer, target, options);
     }
 }

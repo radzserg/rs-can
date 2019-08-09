@@ -56,7 +56,7 @@ describe("Abilities", () => {
             new Ability(A, "manage", D, () => false),
         ]);
 
-        const filteredAbilities = abilities.filterByCondition();
+        const filteredAbilities = abilities.filterByCondition(new A(), new B());
         expect(filteredAbilities.length()).toEqual(2);
     });
 });

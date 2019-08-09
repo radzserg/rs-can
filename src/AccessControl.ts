@@ -2,18 +2,25 @@ import Ability from "./Ability";
 import {CheckCondition, Type} from "./types";
 import Abilities from "./Abilities";
 
-export interface ICan {
+export interface IAccessControl {
     can: (performer: any, action: string, target: any, options?: any) => boolean;
 }
 
-export default class Can implements ICan {
+export default class AccessControl implements IAccessControl {
     private abilities: Abilities;
 
+    constructor() {
+        this.abilities = new Abilities([]);
+    }
+
+    /**
+     * Check if the object of performer can make "action" on target
+     */
     can(performer: any, action: string, target: any, options?: any): boolean {
         return this.abilities.filterByPerformer(performer)
             .filterByTarget(target)
             .filterByAction(action)
-            .filterByCondition(options)
+            .filterByCondition(performer, target, options)
             .length() > 0;
     }
 

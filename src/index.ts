@@ -1,5 +1,5 @@
-import Can, { ICan } from "./Can";
+import AccessControl, { IAccessControl } from "./AccessControl";
 
-export default Can;
+export default AccessControl;
 
-export { ICan };
+export { IAccessControl };
