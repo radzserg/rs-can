@@ -1,4 +1,4 @@
-import {CheckCondition, Type} from "./types";
+import { CheckCondition, Type } from "./types";
 
 export default class Ability {
     public readonly performerClass: Type<any>;

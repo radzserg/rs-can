@@ -22,11 +22,13 @@ describe("Ability", () => {
         expect(ability.can()).toBeTruthy();
     });
 
-    test.each([
-        [true],
-        [false]
-    ])("it check condition", (result) => {
-        const ability = new Ability(A, "update", B, (performer, action, target) => result);
+    test.each([[true], [false]])("it check condition", result => {
+        const ability = new Ability(
+            A,
+            "update",
+            B,
+            (performer, action, target) => result
+        );
         expect(ability.can()).toEqual(result);
     });
 });
