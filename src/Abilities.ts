@@ -24,7 +24,10 @@ export default class Abilities {
 
     filterByTarget(target: any): Abilities {
         const abilities = this.abilities.filter((ability: Ability) => {
-            return target instanceof ability.targetClass;
+            return (
+                ability.targetClass === undefined ||
+                target instanceof ability.targetClass
+            );
         });
         return new Abilities(abilities);
     }

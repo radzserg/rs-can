@@ -38,6 +38,17 @@ describe("Abilities", () => {
         expect(filteredAbilities.length()).toEqual(1);
     });
 
+    it("filter by undefined target", () => {
+        const abilities = new Abilities([
+            new Ability(A, "update", B),
+            new Ability(A, "update"),
+            new Ability(A, "update", D),
+        ]);
+
+        const filteredAbilities = abilities.filterByTarget(undefined);
+        expect(filteredAbilities.length()).toEqual(1);
+    });
+
     it("filter by action", () => {
         const abilities = new Abilities([
             new Ability(A, "update", B),

@@ -17,6 +17,11 @@ describe("Ability", () => {
         expect(ability.can()).toBeTruthy();
     });
 
+    it("can when target is not provided", () => {
+        const ability = new Ability(A, "manage");
+        expect(ability.can()).toBeTruthy();
+    });
+
     test.each([
         [true],
         [false]

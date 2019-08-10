@@ -2,14 +2,14 @@ import {CheckCondition, Type} from "./types";
 
 export default class Ability {
     public readonly performerClass: Type<any>;
-    public readonly targetClass: any;
+    public readonly targetClass: Type<any> | undefined;
     public readonly action: string;
     private readonly condition: CheckCondition;
 
     constructor(
         performerClass: Type<any>,
         action: string,
-        targetClass: Type<any>,
+        targetClass?: Type<any>,
         condition?: CheckCondition
     ) {
         this.performerClass = performerClass;

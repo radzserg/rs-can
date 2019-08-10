@@ -5,7 +5,16 @@ class B {}
 
 describe("Can", () => {
     it("filter ability by performer class", () => {
-        const can = new AccessControl();
-        can.can(A, "update", B);
+        const accessControl = new AccessControl();
+        accessControl.allow(A, "update", B);
+        const can = accessControl.can(new A(), "update", new B());
+        expect(can).toBeTruthy();
+    });
+
+    it("can when target class is not provided", () => {
+        const accessControl = new AccessControl();
+        accessControl.allow(A, "update");
+        expect(accessControl.can(new A(), "update")).toBeTruthy();
+        expect(accessControl.can(new A(), "update", new B())).toBeTruthy();
     });
 });

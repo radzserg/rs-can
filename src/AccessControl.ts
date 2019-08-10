@@ -16,7 +16,7 @@ export default class AccessControl implements IAccessControl {
     /**
      * Check if the object of performer can make "action" on target
      */
-    can(performer: any, action: string, target: any, options?: any): boolean {
+    can(performer: any, action: string, target?: any, options?: any): boolean {
         return this.abilities.filterByPerformer(performer)
             .filterByTarget(target)
             .filterByAction(action)
@@ -32,7 +32,7 @@ export default class AccessControl implements IAccessControl {
     allow(
         performer: Type<any>,
         action: string,
-        target: Type<any>,
+        target?: Type<any>,
         condition?: CheckCondition
     ) {
         this.abilities.add(new Ability(performer, action, target, condition));
