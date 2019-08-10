@@ -4,7 +4,13 @@ class A {}
 class B {}
 
 describe("Can", () => {
-    it("filter ability by performer class", () => {
+    it("cannot perform if it was not allowed", () => {
+        const accessControl = new AccessControl();
+        expect(accessControl.can(new A(), "update")).toBeFalsy();
+        expect(accessControl.can(new A(), "update", new B())).toBeFalsy();
+    });
+
+    it("can if action and target is allowed", () => {
         const accessControl = new AccessControl();
         accessControl.allow(A, "update", B);
         const can = accessControl.can(new A(), "update", new B());
