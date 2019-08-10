@@ -1,6 +1,6 @@
 {
   "name": "rs-can",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "authorization library",
   "main": "index.js",
   "scripts": {
